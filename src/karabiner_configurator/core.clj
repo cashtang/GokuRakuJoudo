@@ -1,18 +1,17 @@
 (ns karabiner-configurator.core
-  (:require
-   [babashka.process :as p]
-   [cheshire.core :as json]
-   [clojure.string :as string]
-   [clojure.tools.cli :as cli]
-   [karabiner-configurator.data :as d]
-   [karabiner-configurator.froms :as froms]
-   [karabiner-configurator.layers :as layers]
-   [karabiner-configurator.misc :refer [load-edn load-json massert]]
-   [karabiner-configurator.modifiers :as modifiers]
-   [karabiner-configurator.profiles :as profiles]
-   [karabiner-configurator.rules :as rules]
-   [karabiner-configurator.tos :as tos]
-   [me.raynes.fs :as fs])
+  (:require [babashka.process :as p]
+            [cheshire.core :as json]
+            [clojure.string :as string]
+            [clojure.tools.cli :as cli]
+            [karabiner-configurator.data :as d]
+            [karabiner-configurator.froms :as froms]
+            [karabiner-configurator.layers :as layers]
+            [karabiner-configurator.misc :refer [load-edn load-json massert]]
+            [karabiner-configurator.modifiers :as modifiers]
+            [karabiner-configurator.profiles :as profiles]
+            [karabiner-configurator.rules :as rules]
+            [karabiner-configurator.tos :as tos]
+            [me.raynes.fs :as fs])
   (:gen-class))
 
 ;; helper function
@@ -29,7 +28,7 @@
       :err))
 
 (defn exit
-  ([status] (exit [status nil]))
+  ([status] (exit status nil))
   ([status msg]
    (when msg (println msg))
    (when-not (= (System/getenv "GOKU_IS_DEV") "1") (System/exit status))))
